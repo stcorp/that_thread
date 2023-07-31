@@ -1,5 +1,3 @@
-require_dependency 'journals_helper'
-
 module Patches
     module ThatThreadJournalsHelperPatch
 

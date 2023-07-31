@@ -1,5 +1,3 @@
-require_dependency 'message'
-
 module Patches
     module ThatThreadMessagePatch
 

@@ -1,5 +1,3 @@
-require_dependency 'attachments_helper'
-
 module Patches
     module ThatThreadAttachmentsHelperPatch
 

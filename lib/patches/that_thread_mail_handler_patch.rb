@@ -1,5 +1,3 @@
-require_dependency 'mail_handler'
-
 module Patches
     module ThatThreadMailHandlerPatch
 

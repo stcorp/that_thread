@@ -1,5 +1,3 @@
-require_dependency 'mailer'
-
 module Patches
     module ThatThreadMailerPatch
 

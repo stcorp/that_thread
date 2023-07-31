@@ -1,6 +1,6 @@
 <% replying ||= false %>
 
-<%= render :file => File.join(Rails.root, 'app/views/messages/_form.html.erb'), :locals => { :f => f, :replying => replying } %>
+<%= render :parent, { :f => f, :replying => replying } %>
 
 <% if @replies.present? %>
   <label style="display: none;">

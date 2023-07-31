@@ -1,4 +1,4 @@
-<%= render :file => File.join(Rails.root, 'app/views/journals/edit.js.erb') %>
+<%= render :parent %>
 
 var $journalForm = $('#journal-<%= @journal.id %>-form');
 var $journalDiv = $journalForm.closest('div.journal');

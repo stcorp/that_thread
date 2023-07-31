@@ -1,5 +1,3 @@
-require_dependency 'redmine/pagination'
-
 module Patches
     module ThatThreadPaginationHelperPatch
 

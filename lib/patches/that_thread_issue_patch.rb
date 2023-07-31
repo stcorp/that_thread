@@ -1,5 +1,3 @@
-require_dependency 'issue'
-
 module Patches
     module ThatThreadIssuePatch
 
@@ -47,9 +45,9 @@ module Patches
                 end
             end
 
-            def reoder_journals_for_thread_view(journals)
+            def reorder_journals_for_thread_view(journals)
                 id_to_object_map = {}
-                reodered_journals = []
+                reordered_journals = []
                 journal_by_original_map = {}
                 journals.each do |journal|
                     id_to_object_map[journal.id] = journal
@@ -63,12 +61,12 @@ module Patches
                         end
                     else
                         journal.html_data[:level] = 0
-                        reodered_journals << journal
+                        reordered_journals << journal
                     end
                 end
-                reodered_journals.each_with_index do |journal, index|
+                reordered_journals.each_with_index do |journal, index|
                     if journal_by_original_map[journal.id]
-                        reodered_journals[index + 1, 0] = journal_by_original_map[journal.id]
+                        reordered_journals[index + 1, 0] = journal_by_original_map[journal.id]
                     end
                 end
             end

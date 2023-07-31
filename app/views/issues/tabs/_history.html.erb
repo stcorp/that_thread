@@ -1,8 +1,8 @@
 <% if Setting.plugin_that_thread['display'] == 'thread' && !User.current.wants_comments_in_reverse_order? %>
-  <% tab[:locals][:journals] = Issue.reoder_journals_for_thread_view(tab[:locals][:journals]) %>
+  <% tab[:locals][:journals] = Issue.reorder_journals_for_thread_view(tab[:locals][:journals]) %>
 <% end %>
 
-<%= render :file => File.join(Rails.root, 'app/views/issues/tabs/_history.html.erb'), :locals => { :tab => tab } %>
+<%= render :parent, { :tab => tab } %>
 
 <% if Setting.plugin_that_thread['display'] == 'thread' && !User.current.wants_comments_in_reverse_order? %>
   <% content_for :header_tags do %>

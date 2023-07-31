@@ -1,5 +1,3 @@
-require_dependency 'messages_controller'
-
 module Patches
     module ThatThreadMessagesControllerPatch
 
@@ -20,7 +18,7 @@ module Patches
                     @reply_count = @topic.children.count
                     @replies = @topic.children.includes(:author, :attachments, { :board => :project })
                                      .reorder("#{Message.table_name}.created_on ASC, #{Message.table_name}.id ASC").to_a
-                    @replies = reoder_messages_for_thread_view(@replies)
+                    @replies = reorder_messages_for_thread_view(@replies)
                     @reply = Message.new(:subject => "RE: #{@message.subject}")
 
                     render :action => 'show', :layout => false if request.xhr?
@@ -35,9 +33,9 @@ module Patches
 
         private
 
-            def reoder_messages_for_thread_view(messages)
+            def reorder_messages_for_thread_view(messages)
                 id_to_object_map = {}
-                reodered_messages = []
+                reordered_messages = []
                 message_by_original_map = {}
                 messages.each do |message|
                     id_to_object_map[message.id] = message
@@ -50,12 +48,12 @@ module Patches
                             message.level = (original.level || 0) + 1
                         end
                     else
-                        reodered_messages << message
+                        reordered_messages << message
                     end
                 end
-                reodered_messages.each_with_index do |message, index|
+                reordered_messages.each_with_index do |message, index|
                     if message_by_original_map[message.id]
-                        reodered_messages[index + 1, 0] = message_by_original_map[message.id]
+                        reordered_messages[index + 1, 0] = message_by_original_map[message.id]
                     end
                 end
             end

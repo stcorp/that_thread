@@ -3,7 +3,7 @@
 <% if Setting.plugin_that_thread['display'] == 'buttons' %>
   <% Issue.load_journals_thread_data(User.current.wants_comments_in_reverse_order? ? journals.reverse : journals) %>
 <% elsif Setting.plugin_that_thread['display'] == 'thread' && !User.current.wants_comments_in_reverse_order? && !defined?(prefix) %>
-  <% journals = Issue.reoder_journals_for_thread_view(journals) %>
+  <% journals = Issue.reorder_journals_for_thread_view(journals) %>
 <% end %>
 
 <% locals = { :journals => journals } %>
@@ -12,4 +12,4 @@
 <% locals[:prefix] = prefix if defined?(prefix) %>
 <% locals[:show_details] = show_details if defined?(show_details) %>
 
-<%= render :file => File.join(Rails.root, 'plugins/redmine_issue_tabs/app/views/redmine_issue_tabs/_history.html.erb'), :locals => locals %>
+<%= render :parent, { :locals => locals } %>

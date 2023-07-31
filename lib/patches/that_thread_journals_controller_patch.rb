@@ -1,5 +1,3 @@
-require_dependency 'journals_controller'
-
 module Patches
     module ThatThreadJournalsControllerPatch
 

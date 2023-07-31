@@ -1,4 +1,4 @@
-class ThatThreadHook  < Redmine::Hook::ViewListener
+class ThatThreadHooks  < Redmine::Hook::ViewListener
 
     def view_layouts_base_html_head(context = {})
         stylesheet_link_tag('threads', :plugin => 'that_thread')
